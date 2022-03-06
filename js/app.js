@@ -1,5 +1,5 @@
 $(() => {
-	const interval = 10
+	const interval = 12
 
 	let gradient = 1
 	const gradients = [
