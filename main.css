@@ -1,4 +1,5 @@
 body {
+	touch-action: manipulation;
 	font-family: 'Roboto Serif', serif;
 	font-weight: 200;
 	background: linear-gradient(60deg, teal, purple) fixed;
@@ -12,6 +13,22 @@ body {
 	cursor: pointer;
 }
 
+*:not(input) {
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+input {
+	-webkit-touch-callout: default;
+	-webkit-user-select: text;
+	-moz-user-select: text;
+	-ms-user-select: text;
+	user-select: text;
+}
+
 #aaa {
 	z-index: 1;
 	top: 0;
@@ -23,6 +40,8 @@ body {
 	opacity: 20%;
 
 	font-size: 24px;
+	word-wrap: break-word;
+	word-break: break-all;
 }
 
 ::placeholder {

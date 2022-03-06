@@ -45,6 +45,10 @@ $(() => {
 		localStorage.setItem("tips", "ok")
 	}
 
+	$(document).on("click", "#scream", () => {
+		$("#scream").trigger("focus")
+	})
+
 	$(document).on("input", "#scream", () => {
 		clearInterval(fuckYou)
 
@@ -58,7 +62,7 @@ $(() => {
 		document.body.style.background = gradients[gradient][0]
 		document.body.style.backgroundColor = gradients[gradient][1]
 		
-		if(gradient !== 3) {
+		if(gradient < 3) {
 			gradient++
 		} else {
 			gradient = 0
@@ -66,9 +70,9 @@ $(() => {
 	})
 
 	function saveAs(uri, filename) {
-		let link = document.createElement('a')
+		let link = document.createElement("a")
 
-		if (typeof link.download === 'string') {
+		if (typeof link.download === "string") {
 			link.href = uri
 			link.download = filename
 			document.body.appendChild(link)
