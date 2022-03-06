@@ -1,3 +1,14 @@
+@keyframes container {
+	0% {
+		top: 0;
+		left: 0;
+	}
+	100% {
+		top: 50%;
+		left: 50%;
+	}
+}
+
 body {
 	font-family: 'IBM Plex Sans', sans-serif;
 	font-size: 24px;
@@ -15,10 +26,11 @@ body {
 	-moz-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
+
+	cursor: pointer;
 }
 
 #aaa {
-	z-index: 1;
 	top: 0;
 	left: 0;
 	margin: 5px;
@@ -33,27 +45,36 @@ body {
 	opacity: 1;
 }
 
-#scream {
-	z-index: 1989;
-	position: absolute;
-
-	width: 220px;
-	color: whitesmoke;
-	background: linear-gradient(60deg, rgba(245, 245, 245, 0.2), rgba(128, 128, 128, 0.2));
-	padding: 12.5px;
-
-	margin: 0 auto;
-	top: 50%;
-	left: 50%;
-	margin-left: -110px;
-
-	border: none;
-	font-size: 32px;
+.blurred {
+	background: linear-gradient(60deg, rgba(245, 245, 245, 0.1), rgba(128, 128, 128, 0.1));
+	box-shadow: 5px 2.5px 7.5px rgba(128, 128, 128, 0.3);
 	border-radius: 20px;
-	box-shadow: 20px 10px 40px rgba(128, 128, 128, 0.3);
 
 	backdrop-filter: blur(10px);
 	-webkit-backdrop-filter: blur(10px);
+}
+
+#container {
+	position: absolute;
+	margin: 0 auto;
+	top: 50%;
+	left: 50%;
+
+	padding: 20px;
+	cursor: move;
+	animation: container 2s 1;
+}
+
+#scream {
+	position: relative;
+
+	width: 220px;
+	color: whitesmoke;
+	
+	padding: 12.5px;
+
+	border: none;
+	font-size: 32px;
 
 	font-family: 'IBM Plex Sans', sans-serif;
 }
