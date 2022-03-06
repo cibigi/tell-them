@@ -86,6 +86,9 @@ $(() => {
 		$("body").width(screen.width)
 		$("body").height(screen.height)
 
+		$(document).off("click", "#aaa")
+		window.scrollTo(0, 0)
+
 		html2canvas(document.body, {
 			x: window.scrollX,
 			y: window.scrollY,
