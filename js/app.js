@@ -1,5 +1,5 @@
 $(() => {
-	const interval = 12
+	const interval = 1
 
 	let gradient = 1
 	const gradients = [
@@ -24,7 +24,7 @@ $(() => {
 		}, interval)
 	})
 
-	$(document).on("click", "body *", () => {
+	$(document).on("click", "#aaa", () => {
 		document.body.style.background = gradients[gradient][0]
 		document.body.style.backgroundColor = gradients[gradient][1]
 		
@@ -33,5 +33,32 @@ $(() => {
 		} else {
 			gradient = 0
 		}
+	})
+
+	function saveAs(uri, filename) {
+		let link = document.createElement('a')
+
+		if (typeof link.download === 'string') {
+			link.href = uri
+			link.download = filename
+			document.body.appendChild(link)
+			link.click()
+			document.body.removeChild(link)
+		} else {
+			window.open(uri)
+		}
+	}
+
+	$(document).on("click", "#save", () => {
+		$("#container").hide()
+
+		html2canvas(document.body, {
+			x: window.scrollX,
+			y: window.scrollY,
+			width: window.innerWidth,
+			height: window.innerHeight,
+		}).then(function(canvas) {
+			saveAs(canvas.toDataURL(), "tell-them.png")
+		})
 	})
 })
