@@ -12,15 +12,6 @@ body {
 	cursor: pointer;
 }
 
-*:not(input.field) {
-	-webkit-touch-callout: none;
-	-webkit-user-select: none;
-	-khtml-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-}
-
 #aaa {
 	z-index: 1;
 	top: 0;
@@ -32,6 +23,12 @@ body {
 	opacity: 20%;
 
 	font-size: 24px;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
 }
 
 ::placeholder {

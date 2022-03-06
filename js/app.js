@@ -45,10 +45,6 @@ $(() => {
 		localStorage.setItem("tips", "ok")
 	}
 
-	$(document).on("click", "#scream", () => {
-		$("#scream").trigger("focus")
-	})
-
 	$(document).on("input", "#scream", () => {
 		clearInterval(fuckYou)
 
