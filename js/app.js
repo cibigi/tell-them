@@ -8,12 +8,42 @@ $(() => {
 		["linear-gradient(60deg, coral, mediumvioletred) fixed", "mediumvioletred"],
 		["linear-gradient(60deg, maroon, tomato) fixed", "maroon"]
 	]
-
+	
 	$("#container").draggable()
 
 	const fuckYou = setInterval(() => {
 		$("#aaa").append("fuck you ")
 	}, interval)
+
+	if(localStorage.getItem("tips") === null) {
+		$("#dialog").append(`
+			<ul>
+				<li>tap the background to change the gradient.</li>
+				<li>type your message in the text box.</li>
+				<li>tap "save" to download the wallpaper.</li>
+				<li>you can drag the "pill" wherever you want.</li>
+			</ul>
+			<p style="font-size: 12px;"> 
+				tell them 1.0<br>
+				cibigi.github.io/tell-them<br>
+				by Christian Battista Giannarelli<br>
+				Released under GNU GPL v3.
+			</p>
+		`)
+
+		$("#dialog").dialog({
+			show: {
+				effect: "explode",
+				duration: 500
+			},
+			hide: {
+				effect: "explode",
+				duration: 500
+			}
+		})
+
+		localStorage.setItem("tips", "ok")
+	}
 
 	$(document).on("input", "#scream", () => {
 		clearInterval(fuckYou)
@@ -52,13 +82,17 @@ $(() => {
 	$(document).on("click", "#save", () => {
 		$("#container").hide()
 
+		$("body").css("overflow", "visible")
+		$("body").width(screen.width)
+		$("body").height(screen.height)
+
 		html2canvas(document.body, {
 			x: window.scrollX,
 			y: window.scrollY,
-			width: window.innerWidth,
-			height: window.innerHeight,
+			width: screen.width,
+			height: screen.height,
 		}).then(function(canvas) {
 			saveAs(canvas.toDataURL(), "tell-them.png")
-		})
+		}).delay(1000)
 	})
 })
