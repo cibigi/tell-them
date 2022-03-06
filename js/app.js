@@ -8,8 +8,6 @@ $(() => {
 		["linear-gradient(60deg, coral, mediumvioletred) fixed", "mediumvioletred"],
 		["linear-gradient(60deg, maroon, tomato) fixed", "maroon"]
 	]
-	
-	$("#container").draggable()
 
 	const fuckYou = setInterval(() => {
 		$("#aaa").append("fuck you ")
@@ -21,7 +19,6 @@ $(() => {
 				<li>tap the background to change the gradient.</li>
 				<li>type your message in the text box.</li>
 				<li>tap "save" to download the wallpaper.</li>
-				<li>you can drag the "pill" wherever you want.</li>
 			</ul>
 			<p style="font-size: 12px;"> 
 				tell them 1.0<br>
